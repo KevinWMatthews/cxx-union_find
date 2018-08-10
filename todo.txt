@@ -1,2 +1,4 @@
 Organize source/library code.
 Figure out which Boost variables to set, if any.
+
+Should an union of 0 throw an error?
