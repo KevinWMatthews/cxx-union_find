@@ -1,0 +1,2 @@
+Organize source/library code.
+Figure out which Boost variables to set, if any.
