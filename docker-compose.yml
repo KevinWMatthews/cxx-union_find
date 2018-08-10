@@ -1,0 +1,18 @@
+version: '3.2'
+services:
+  compile:
+    build:
+      context: .
+      args:
+        - user=${USER?Must specify USER}
+    user: ${USER?Must specify USER}
+    tty: true
+    stdin_open: true
+    volumes:
+      - type: bind
+        source: ./union_find
+        target: /home/${USER}/union_find
+      - type: bind
+        source: ./build_union_find
+        target: /home/${USER}/build_union_find
+    working_dir: /home/${USER}/build_union_find
