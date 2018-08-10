@@ -1,6 +1,7 @@
 # Union Find
 
-TODO
+C++ implementation of the UnionFind algorithm.
+Thoroughly hacking on this.
 
 ## Dockerfile
 
