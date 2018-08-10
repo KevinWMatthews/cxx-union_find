@@ -1,0 +1,4 @@
+#ifndef UNION_FIND_INCLUDED
+#define UNION_FIND_INCLUDED
+
+#endif
