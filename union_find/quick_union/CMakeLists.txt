@@ -11,3 +11,6 @@ set_property(TARGET quick_union
     PROPERTY CXX_STANDARD_REQUIRED ON
 )
 add_library(quick_union::quick_union ALIAS quick_union)
+
+
+add_subdirectory(test)
