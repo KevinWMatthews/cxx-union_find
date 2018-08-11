@@ -24,9 +24,9 @@ BOOST_AUTO_TEST_CASE(points_are_not_connected_by_default)
     BOOST_REQUIRE_EQUAL(quick_union.is_connected(0, 1), false);
 }
 
-BOOST_AUTO_TEST_CASE(can_connect_points)
-{
-    QuickUnion quick_union(2);
-    BOOST_REQUIRE_EQUAL(quick_union.connect(0, 1), true);
-    BOOST_REQUIRE_EQUAL(quick_union.is_connected(0, 1), true);
-}
+// BOOST_AUTO_TEST_CASE(can_connect_points)
+// {
+    // QuickUnion quick_union(2);
+    // BOOST_REQUIRE_EQUAL(quick_union.connect(0, 1), true);
+    // BOOST_REQUIRE_EQUAL(quick_union.is_connected(0, 1), true);
+// }
