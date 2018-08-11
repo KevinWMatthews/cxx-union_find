@@ -4,3 +4,10 @@ Figure out which Boost variables to set, if any.
 Should an union of 0 throw an error?
 
 Rather than resize() and generate(), try reserve() and then insert().
+
+Do not allow connect() if out of range.
+Do not allow is_connected() if out of range.
+
+Add documentation on components:
+    { 0 } { 1 2 } { 3 4 5 }
+

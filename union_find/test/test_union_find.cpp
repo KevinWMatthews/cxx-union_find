@@ -60,3 +60,19 @@ BOOST_AUTO_TEST_CASE(connect_is_transitive)
 
     BOOST_REQUIRE_EQUAL(union_find.is_connected(0, 2), true);
 }
+
+BOOST_AUTO_TEST_CASE(distinct_components_are_not_connected)
+{
+    UnionFind union_find(4);
+
+    // Create two "component" (set of connected elements):
+    // { 0 1 } { 2 3 }
+    union_find.connect(0, 1);
+    union_find.connect(2, 3);
+
+    BOOST_REQUIRE_EQUAL(union_find.is_connected(0, 2), false);
+    BOOST_REQUIRE_EQUAL(union_find.is_connected(1, 2), false);
+
+    BOOST_REQUIRE_EQUAL(union_find.is_connected(0, 3), false);
+    BOOST_REQUIRE_EQUAL(union_find.is_connected(1, 3), false);
+}
