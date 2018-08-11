@@ -51,3 +51,12 @@ BOOST_AUTO_TEST_CASE(connecting_some_does_not_connect_all)
     BOOST_REQUIRE_EQUAL(union_find.is_connected(0, 2), false);
     BOOST_REQUIRE_EQUAL(union_find.is_connected(1, 2), true);
 }
+
+BOOST_AUTO_TEST_CASE(connect_is_transitive)
+{
+    UnionFind union_find(3);
+    union_find.connect(0, 1);
+    union_find.connect(1, 2);
+
+    BOOST_REQUIRE_EQUAL(union_find.is_connected(0, 2), true);
+}

@@ -20,7 +20,7 @@ bool UnionFind::is_connected(size_t p, size_t q) const
 
 bool UnionFind::connect(size_t p, size_t q)
 {
-    id[q] = p;
+    id[q] = id.at(p);
     return true;
 }
 
