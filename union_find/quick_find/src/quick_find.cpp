@@ -1,4 +1,4 @@
-#include "union_find.h"
+#include "quick_find.h"
 #include <stdexcept>
 #include <algorithm>
 
