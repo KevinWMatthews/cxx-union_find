@@ -38,7 +38,3 @@ target_link_libraries(benchmark_quick_find
     Boost::timer
     Boost::chrono
 )
-add_test(
-    NAME benchmark_quick_find
-    COMMAND benchmark_quick_find
-)
