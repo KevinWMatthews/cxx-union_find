@@ -11,3 +11,5 @@ Do not allow is_connected() if out of range.
 Add documentation on components:
     { 0 } { 1 2 } { 3 4 5 }
 
+Send Boost performance test output to logfile.
+Should be able to do this with a CTest command.
