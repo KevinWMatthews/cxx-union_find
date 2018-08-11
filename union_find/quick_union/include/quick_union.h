@@ -6,7 +6,7 @@
 class QuickUnion
 {
 public:
-    explicit QuickUnion(size_t n_elements) {};
+    explicit QuickUnion(size_t n_elements);
 };
 
 #endif
