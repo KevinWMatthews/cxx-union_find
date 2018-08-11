@@ -12,7 +12,7 @@ public:
 private:
     void disconnect_all();
     void merge_components(size_t new_id, size_t old_id);
-    std::vector<size_t> id;
+    std::vector<size_t> ids;
 };
 
 #endif
