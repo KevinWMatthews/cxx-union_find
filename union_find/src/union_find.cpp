@@ -20,8 +20,16 @@ bool UnionFind::is_connected(size_t p, size_t q) const
 
 bool UnionFind::connect(size_t p, size_t q)
 {
-    id[q] = id.at(p);
+    merge_components(id.at(p), id.at(q));
     return true;
+}
+
+void UnionFind::merge_components(size_t new_id, size_t old_id)
+{
+    auto is_old_id = [old_id](auto this_id) {
+        return this_id == old_id;
+    };
+    replace_if(id.begin(), id.end(), is_old_id, new_id);
 }
 
 void UnionFind::disconnect_all()

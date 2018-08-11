@@ -12,6 +12,7 @@ public:
     bool connect(size_t p, size_t q);
 private:
     void disconnect_all();
+    void merge_components(size_t new_id, size_t old_id);
     std::vector<size_t> id;
 };
 
