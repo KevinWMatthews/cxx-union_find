@@ -11,7 +11,9 @@ QuickUnion::QuickUnion(size_t n_elements)
 
 bool QuickUnion::is_connected(size_t p, size_t q) const
 {
-    return true;
+    if (p == q)
+        return true;
+    return false;
 }
 
 bool QuickUnion::connect(size_t p, size_t q)
