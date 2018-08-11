@@ -31,6 +31,8 @@ If I do this then I might be able to get away with a home-less user.
 # Links
 
 [Boost and CMake](https://cmake.org/cmake/help/v3.7/module/FindBoost.html)
+[CMake include()](https://crascit.com/2016/01/31/enhanced-source-file-handling-with-target_sources/)
+[CMake best practices](http://fujii.github.io/2015/10/10/cmake-best-practice/)
 
 
 ### Test logging

@@ -13,3 +13,5 @@ Add documentation on components:
 
 Send Boost performance test output to logfile.
 Should be able to do this with a CTest command.
+
+Make tests a compile option.

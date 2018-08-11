@@ -32,6 +32,10 @@ add_executable(benchmark_quick_find
 target_include_directories(benchmark_quick_find
     PRIVATE ${Boost_INCLUDE_DIRS}
 )
+set_property(TARGET benchmark_quick_find
+    PROPERTY CXX_STANDARD 11
+    PROPERTY CXX_STANDARD_REQUIRED ON
+)
 target_link_libraries(benchmark_quick_find
     quick_find::quick_find
     Boost::unit_test_framework
