@@ -38,3 +38,7 @@ target_link_libraries(test_performance_union_find
     Boost::timer
     Boost::chrono
 )
+add_test(
+    NAME test_performance_union_find
+    COMMAND test_performance_union_find
+)
