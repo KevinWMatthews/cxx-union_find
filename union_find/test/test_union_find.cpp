@@ -33,3 +33,21 @@ BOOST_AUTO_TEST_CASE(can_connect_points)
     BOOST_REQUIRE_EQUAL(union_find.connect(0, 1), true);
     BOOST_REQUIRE_EQUAL(union_find.is_connected(0, 1), true);
 }
+
+BOOST_AUTO_TEST_CASE(several_points_are_disconnected_by_default)
+{
+    UnionFind union_find(3);
+    BOOST_REQUIRE_EQUAL(union_find.is_connected(0, 1), false);
+    BOOST_REQUIRE_EQUAL(union_find.is_connected(0, 2), false);
+    BOOST_REQUIRE_EQUAL(union_find.is_connected(1, 2), false);
+}
+
+BOOST_AUTO_TEST_CASE(connecting_some_does_not_connect_all)
+{
+    UnionFind union_find(3);
+    union_find.connect(1, 2);
+
+    BOOST_REQUIRE_EQUAL(union_find.is_connected(0, 1), false);
+    BOOST_REQUIRE_EQUAL(union_find.is_connected(0, 2), false);
+    BOOST_REQUIRE_EQUAL(union_find.is_connected(1, 2), true);
+}

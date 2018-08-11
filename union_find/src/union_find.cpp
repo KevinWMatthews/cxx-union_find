@@ -13,7 +13,7 @@ UnionFind::UnionFind(size_t n_elements)
     disconnect_all();
 }
 
-bool UnionFind::is_connected(size_t p, size_t q)
+bool UnionFind::is_connected(size_t p, size_t q) const
 {
     return id.at(p) == id.at(q);
 }
