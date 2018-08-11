@@ -4,4 +4,5 @@
 
 BOOST_AUTO_TEST_CASE(can_be_created)
 {
+    QuickUnion quick_union(1);
 }
