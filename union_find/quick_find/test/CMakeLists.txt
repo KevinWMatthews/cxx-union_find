@@ -10,9 +10,6 @@ find_package(Boost 1.62 REQUIRED
 add_executable(test_quick_find
     test_quick_find.cpp
 )
-target_include_directories(test_quick_find
-    PRIVATE ${Boost_INCLUDE_DIRS}
-)
 target_link_libraries(test_quick_find
     quick_find::quick_find
     Boost::unit_test_framework
@@ -28,9 +25,6 @@ add_test(
 
 add_executable(benchmark_quick_find
     benchmark_quick_find.cpp
-)
-target_include_directories(benchmark_quick_find
-    PRIVATE ${Boost_INCLUDE_DIRS}
 )
 set_property(TARGET benchmark_quick_find
     PROPERTY CXX_STANDARD 11
