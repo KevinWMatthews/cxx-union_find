@@ -34,6 +34,7 @@ target_include_directories(test_performance_union_find
 )
 target_link_libraries(test_performance_union_find
     union_find::union_find
+    Boost::unit_test_framework
     Boost::timer
     Boost::chrono
 )
