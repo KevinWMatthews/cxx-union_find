@@ -4,7 +4,7 @@ set(Boost_USE_STATIC_LIBS ON)
 set(Boost_USE_MULTITHREADED ON)
 set(Boost_USE_STATIC_RUNTIME OFF)
 find_package(Boost 1.62 REQUIRED
-    COMPONENTS unit_test_framework
+    COMPONENTS unit_test_framework timer chrono
 )
 
 add_executable(test_union_find
@@ -24,4 +24,16 @@ set_property(TARGET test_union_find
 add_test(
     NAME test_union_find
     COMMAND test_union_find
+)
+
+add_executable(test_performance_union_find
+    test_performance_union_find.cpp
+)
+target_include_directories(test_performance_union_find
+    PRIVATE ${Boost_INCLUDE_DIRS}
+)
+target_link_libraries(test_performance_union_find
+    union_find::union_find
+    Boost::timer
+    Boost::chrono
 )

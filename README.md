@@ -27,3 +27,7 @@ $ docker exec -t <container_name> <command>
 
 Could export the environment variable UID so that docker-compose can pick it up.
 If I do this then I might be able to get away with a home-less user.
+
+# Links
+
+[Boost and CMake](https://cmake.org/cmake/help/v3.7/module/FindBoost.html)
