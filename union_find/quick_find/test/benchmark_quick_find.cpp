@@ -1,4 +1,4 @@
-#include "union_find.h"
+#include "quick_find.h"
 #define BOOST_TEST_MAIN
 #include <boost/test/unit_test.hpp>
 #include <boost/timer/timer.hpp>
@@ -14,30 +14,30 @@ BOOST_AUTO_TEST_CASE(fastest_possible_time)
 {
     boost::timer::auto_cpu_timer t;
 
-    UnionFind union_find(1);
-    union_find.is_connected(0, 0);
+    QuickFind quick_find(1);
+    quick_find.is_connected(0, 0);
 }
 
 BOOST_AUTO_TEST_CASE(initialize_two_elements)
 {
     boost::timer::auto_cpu_timer t;
 
-    UnionFind union_find(2);
-    union_find.is_connected(0, 1);
+    QuickFind quick_find(2);
+    quick_find.is_connected(0, 1);
 }
 
 BOOST_AUTO_TEST_CASE(initialize_one_thousand_elements)
 {
     boost::timer::auto_cpu_timer t;
 
-    UnionFind union_find(1000);
-    union_find.is_connected(0, 1);
+    QuickFind quick_find(1000);
+    quick_find.is_connected(0, 1);
 }
 
 BOOST_AUTO_TEST_CASE(initialize_one_million_elements)
 {
     boost::timer::auto_cpu_timer t;
 
-    UnionFind union_find(1'000'000);
-    union_find.is_connected(0, 1);
+    QuickFind quick_find(1'000'000);
+    quick_find.is_connected(0, 1);
 }
