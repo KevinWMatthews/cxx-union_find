@@ -21,8 +21,8 @@ BOOST_AUTO_TEST_CASE(point_is_connected_to_itself)
     BOOST_REQUIRE_EQUAL(union_find.is_connected(0, 0), true);
 }
 
-// BOOST_AUTO_TEST_CASE(empty_union_is_not_connected)
-// {
-    // UnionFind union_find(2);
-    // BOOST_REQUIRE_EQUAL(union_find.is_connected(0, 1), false);
-// }
+BOOST_AUTO_TEST_CASE(points_are_not_connected_by_default)
+{
+    UnionFind union_find(2);
+    BOOST_REQUIRE_EQUAL(union_find.is_connected(0, 1), false);
+}
