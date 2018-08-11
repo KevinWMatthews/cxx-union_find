@@ -56,3 +56,6 @@ Boost supports several useful runtime options:
 `--logger=HRF,test_suite,benchmark_union_find.txt`
 CTest suppresses logfile generation.
 logger doesn't catch cpu timer's output.
+
+For now, run from the command line and use
+`--log_leve=test_suite`

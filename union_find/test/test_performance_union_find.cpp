@@ -18,10 +18,26 @@ BOOST_AUTO_TEST_CASE(fastest_possible_time)
     union_find.is_connected(0, 0);
 }
 
-BOOST_AUTO_TEST_CASE(find_two_elements)
+BOOST_AUTO_TEST_CASE(initialize_two_elements)
 {
     boost::timer::auto_cpu_timer t;
 
     UnionFind union_find(2);
+    union_find.is_connected(0, 1);
+}
+
+BOOST_AUTO_TEST_CASE(initialize_one_thousand_elements)
+{
+    boost::timer::auto_cpu_timer t;
+
+    UnionFind union_find(1000);
+    union_find.is_connected(0, 1);
+}
+
+BOOST_AUTO_TEST_CASE(initialize_one_million_elements)
+{
+    boost::timer::auto_cpu_timer t;
+
+    UnionFind union_find(1'000'000);
     union_find.is_connected(0, 1);
 }
