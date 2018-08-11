@@ -8,3 +8,12 @@ QuickUnion::QuickUnion(size_t n_elements)
     if (n_elements == 0)
         throw domain_error("Union must have elements");
 }
+
+bool QuickUnion::is_connected(size_t p, size_t q) const
+{
+    return true;
+}
+
+bool QuickUnion::connect(size_t p, size_t q)
+{
+}
