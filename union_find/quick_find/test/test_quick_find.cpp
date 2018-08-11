@@ -80,11 +80,29 @@ BOOST_AUTO_TEST_CASE(distinct_components_are_not_connected)
 BOOST_AUTO_TEST_CASE(connecting_components_connects_all_elements)
 {
     // { 0 1 } { 2 3 }  => { 0 1 2 3 }
+    // after 1 and 2 are connected
     QuickFind quick_find(4);
 
     quick_find.connect(0, 1);
     quick_find.connect(2, 3);
     quick_find.connect(1, 2);
+
+    BOOST_REQUIRE_EQUAL(quick_find.is_connected(0, 2), true);
+    BOOST_REQUIRE_EQUAL(quick_find.is_connected(1, 2), true);
+
+    BOOST_REQUIRE_EQUAL(quick_find.is_connected(0, 3), true);
+    BOOST_REQUIRE_EQUAL(quick_find.is_connected(1, 3), true);
+}
+
+BOOST_AUTO_TEST_CASE(connecting_components_is_commutative)
+{
+    // { 0 1 } { 2 3 }  => { 0 1 2 3 }
+    // after 0 and 3 are connected
+    QuickFind quick_find(4);
+
+    quick_find.connect(0, 1);
+    quick_find.connect(2, 3);
+    quick_find.connect(0, 3);
 
     BOOST_REQUIRE_EQUAL(quick_find.is_connected(0, 2), true);
     BOOST_REQUIRE_EQUAL(quick_find.is_connected(1, 2), true);
