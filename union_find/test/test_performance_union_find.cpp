@@ -1,43 +1,20 @@
+#include "union_find.h"
 #define BOOST_TEST_MAIN
 #include <boost/test/unit_test.hpp>
 #include <boost/timer/timer.hpp>
 #include <cmath>
 
-BOOST_AUTO_TEST_CASE(local_performance_test)
+// auto_cpu_timer automatically prints the time when it is destroyted
+// Format the output time using:
+//      %w      wall time
+//      %u      user time
+//      %s      system time
+
+BOOST_AUTO_TEST_CASE(fastest_possible_time)
 {
     boost::timer::auto_cpu_timer t;
-    // boost::timer::auto_cpu_timer t("%w seconds, wall time\n");
-    // boost::timer::auto_cpu_timer t("%u seconds, user time\n");
-    // boost::timer::auto_cpu_timer t("%s seconds, system time\n");
 
-    for (long i = 0; i < 1000000; ++i)
-        std::sqrt(123.456L); // burn some time
-
-    // auto_cpu_timer automatically prints the time when it is destroyted
+    UnionFind union_find(1);
+    union_find.is_connected(0, 0);
 }
 
-BOOST_AUTO_TEST_CASE(local_performance_test2)
-{
-    boost::timer::auto_cpu_timer t;
-    // boost::timer::auto_cpu_timer t("%w seconds, wall time\n");
-    // boost::timer::auto_cpu_timer t("%u seconds, user time\n");
-    // boost::timer::auto_cpu_timer t("%s seconds, system time\n");
-
-    for (long i = 0; i < 1000000; ++i)
-        std::sqrt(123.456L); // burn some time
-
-    // auto_cpu_timer automatically prints the time when it is destroyted
-}
-
-BOOST_AUTO_TEST_CASE(local_performance_test3)
-{
-    boost::timer::auto_cpu_timer t;
-    // boost::timer::auto_cpu_timer t("%w seconds, wall time\n");
-    // boost::timer::auto_cpu_timer t("%u seconds, user time\n");
-    // boost::timer::auto_cpu_timer t("%s seconds, system time\n");
-
-    for (long i = 0; i < 1000000; ++i)
-        std::sqrt(123.456L); // burn some time
-
-    // auto_cpu_timer automatically prints the time when it is destroyted
-}
