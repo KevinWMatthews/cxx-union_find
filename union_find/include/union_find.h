@@ -6,14 +6,8 @@
 
 class UnionFind
 {
-public:
-    explicit UnionFind(size_t n_elements);
-    bool is_connected(size_t p, size_t q) const;
-    bool connect(size_t p, size_t q);
-private:
-    void disconnect_all();
-    void merge_components(size_t new_id, size_t old_id);
-    std::vector<size_t> id;
+    virtual bool is_connected(size_t p, size_t q) const = 0;
+    virtual bool connect(size_t p, size_t q) = 0;
 };
 
 #endif

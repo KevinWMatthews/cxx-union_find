@@ -3,7 +3,7 @@
 
 #include "union_find.h"
 
-class QuickFind
+class QuickFind : public UnionFind
 {
 public:
     explicit QuickFind(size_t n_elements);
