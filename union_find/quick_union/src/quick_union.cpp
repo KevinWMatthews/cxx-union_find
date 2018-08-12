@@ -15,13 +15,12 @@ QuickUnion::QuickUnion(size_t n_elements)
 
 bool QuickUnion::is_connected(size_t p, size_t q) const
 {
-    if (p == q)
-        return true;
-    return false;
+    return ids.at(p) == ids.at(q);
 }
 
 bool QuickUnion::connect(size_t p, size_t q)
 {
+    ids[p] = ids.at(q);
     return true;
 }
 

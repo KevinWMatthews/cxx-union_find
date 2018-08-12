@@ -17,3 +17,6 @@ Should be able to do this with a CTest command.
 Make tests a compile option.
 
 Extract size check during initialization.
+
+Connect low/high and high/low.
+Check connection for low/high and high/low.
