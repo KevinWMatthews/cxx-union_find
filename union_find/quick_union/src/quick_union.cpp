@@ -33,12 +33,13 @@ bool QuickUnion::is_connected(size_t p, size_t q) const
     return root_p == root_q;
 }
 
-// We're storing items in a tree. Document this somehow.
 bool QuickUnion::connect(size_t p, size_t q)
 {
-    auto parent = p;
-    auto child = q;
-    ids[child] = parent;
+    // To connect elements in a tree, connect their roos.
+    // Elements can be their own root.
+    auto root_p = get_root(p);
+    auto root_q = get_root(q);
+    ids[root_q] = root_p;
     return true;
 }
 

@@ -90,7 +90,7 @@ BOOST_AUTO_TEST_CASE(connect_series_of_elements)
     BOOST_REQUIRE_EQUAL(quick_union.is_connected(2, 3), true);
 }
 
-BOOST_AUTO_TEST_CASE(connecting_components_connects_all_elements)
+BOOST_AUTO_TEST_CASE(connecting_inner_components_connects_all_elements)
 {
     // { 0 1 } { 2 3 }  => { 0 1 2 3 }
     // after 1 and 2 are connected
@@ -100,11 +100,66 @@ BOOST_AUTO_TEST_CASE(connecting_components_connects_all_elements)
     quick_union.connect(2, 3);
     quick_union.connect(1, 2);
 
+    BOOST_REQUIRE_EQUAL(quick_union.is_connected(0, 1), true);
     BOOST_REQUIRE_EQUAL(quick_union.is_connected(0, 2), true);
-    BOOST_REQUIRE_EQUAL(quick_union.is_connected(1, 2), true);
-
     BOOST_REQUIRE_EQUAL(quick_union.is_connected(0, 3), true);
+    BOOST_REQUIRE_EQUAL(quick_union.is_connected(1, 2), true);
     BOOST_REQUIRE_EQUAL(quick_union.is_connected(1, 3), true);
+    BOOST_REQUIRE_EQUAL(quick_union.is_connected(2, 3), true);
+}
+
+BOOST_AUTO_TEST_CASE(connecting_outer_elements_of_components_connects_elements)
+{
+    // { 0 1 } { 2 3 }  => { 0 1 2 3 }
+    // after 0 and 3 are connected
+    QuickUnion quick_union(4);
+
+    quick_union.connect(0, 1);
+    quick_union.connect(2, 3);
+    quick_union.connect(0, 3);
+
+    BOOST_REQUIRE_EQUAL(quick_union.is_connected(0, 1), true);
+    BOOST_REQUIRE_EQUAL(quick_union.is_connected(0, 2), true);
+    BOOST_REQUIRE_EQUAL(quick_union.is_connected(0, 3), true);
+    BOOST_REQUIRE_EQUAL(quick_union.is_connected(1, 2), true);
+    BOOST_REQUIRE_EQUAL(quick_union.is_connected(1, 3), true);
+    BOOST_REQUIRE_EQUAL(quick_union.is_connected(2, 3), true);
+}
+
+BOOST_AUTO_TEST_CASE(connecting_first_elements_of_components_connects_elements)
+{
+    // { 0 1 } { 2 3 }  => { 0 1 2 3 }
+    // after 0 and 2 are connected
+    QuickUnion quick_union(4);
+
+    quick_union.connect(0, 1);
+    quick_union.connect(2, 3);
+    quick_union.connect(0, 2);
+
+    BOOST_REQUIRE_EQUAL(quick_union.is_connected(0, 1), true);
+    BOOST_REQUIRE_EQUAL(quick_union.is_connected(0, 2), true);
+    BOOST_REQUIRE_EQUAL(quick_union.is_connected(0, 3), true);
+    BOOST_REQUIRE_EQUAL(quick_union.is_connected(1, 2), true);
+    BOOST_REQUIRE_EQUAL(quick_union.is_connected(1, 3), true);
+    BOOST_REQUIRE_EQUAL(quick_union.is_connected(2, 3), true);
+}
+
+BOOST_AUTO_TEST_CASE(connecting_last_elements_of_components_connects_elements)
+{
+    // { 0 1 } { 2 3 }  => { 0 1 2 3 }
+    // after 0 and 2 are connected
+    QuickUnion quick_union(4);
+
+    quick_union.connect(0, 1);
+    quick_union.connect(2, 3);
+    quick_union.connect(1, 2);
+
+    BOOST_REQUIRE_EQUAL(quick_union.is_connected(0, 1), true);
+    BOOST_REQUIRE_EQUAL(quick_union.is_connected(0, 2), true);
+    BOOST_REQUIRE_EQUAL(quick_union.is_connected(0, 3), true);
+    BOOST_REQUIRE_EQUAL(quick_union.is_connected(1, 2), true);
+    BOOST_REQUIRE_EQUAL(quick_union.is_connected(1, 3), true);
+    BOOST_REQUIRE_EQUAL(quick_union.is_connected(2, 3), true);
 }
 
 BOOST_AUTO_TEST_CASE(single_element_can_have_multiple_connections)
