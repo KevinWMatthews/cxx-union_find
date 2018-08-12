@@ -77,6 +77,22 @@ BOOST_AUTO_TEST_CASE(distinct_components_are_not_connected)
     BOOST_REQUIRE_EQUAL(quick_find.is_connected(1, 3), false);
 }
 
+BOOST_AUTO_TEST_CASE(connect_series_of_elements)
+{
+    QuickFind quick_find(4);
+
+    quick_find.connect(0, 1);
+    quick_find.connect(1, 2);
+    quick_find.connect(2, 3);
+
+    BOOST_REQUIRE_EQUAL(quick_find.is_connected(0, 1), true);
+    BOOST_REQUIRE_EQUAL(quick_find.is_connected(0, 2), true);
+    BOOST_REQUIRE_EQUAL(quick_find.is_connected(0, 3), true);
+    BOOST_REQUIRE_EQUAL(quick_find.is_connected(1, 2), true);
+    BOOST_REQUIRE_EQUAL(quick_find.is_connected(1, 3), true);
+    BOOST_REQUIRE_EQUAL(quick_find.is_connected(2, 3), true);
+}
+
 BOOST_AUTO_TEST_CASE(connecting_components_connects_all_elements)
 {
     // { 0 1 } { 2 3 }  => { 0 1 2 3 }
