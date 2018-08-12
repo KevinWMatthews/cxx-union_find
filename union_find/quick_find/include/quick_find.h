@@ -7,8 +7,8 @@ class QuickFind : public UnionFind
 {
 public:
     explicit QuickFind(size_t n_elements);
-    bool is_connected(size_t p, size_t q) const;
-    bool connect(size_t p, size_t q);
+    bool is_connected(size_t p, size_t q) const override;
+    bool connect(size_t p, size_t q) override;
 private:
     void disconnect_all();
     void merge_components(size_t new_id, size_t old_id);
