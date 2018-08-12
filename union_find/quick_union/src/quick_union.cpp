@@ -33,7 +33,7 @@ bool QuickUnion::is_connected(size_t p, size_t q) const
 
 bool QuickUnion::connect(size_t p, size_t q)
 {
-    ids[p] = ids.at(q);
+    ids[p] = q;
     return true;
 }
 
