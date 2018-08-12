@@ -15,7 +15,20 @@ QuickUnion::QuickUnion(size_t n_elements)
 
 bool QuickUnion::is_connected(size_t p, size_t q) const
 {
-    return ids.at(p) == ids.at(q);
+    // Should we check that ids.at(q) == p?
+    // Enforce direction to connections.
+    auto parent = ids.at(p);
+    if (parent == q)
+    {
+        return true;
+    }
+    else if (parent == p)
+    {
+        // Connected to ourselves only
+        return false;
+    }
+    //TODO could check if parent > q if we enforce a connection direction
+    return is_connected(parent, q);
 }
 
 bool QuickUnion::connect(size_t p, size_t q)

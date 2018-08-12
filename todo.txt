@@ -20,3 +20,7 @@ Extract size check during initialization.
 
 Connect low/high and high/low.
 Check connection for low/high and high/low.
+
+Add a larger range of connected elements:
+    { 0 1 2 3 } { 4 }
+to make sure that the recursion works in quick_union.
