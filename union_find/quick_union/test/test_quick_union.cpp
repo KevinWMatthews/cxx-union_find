@@ -106,3 +106,16 @@ BOOST_AUTO_TEST_CASE(connecting_components_connects_all_elements)
     BOOST_REQUIRE_EQUAL(quick_union.is_connected(0, 3), true);
     BOOST_REQUIRE_EQUAL(quick_union.is_connected(1, 3), true);
 }
+
+BOOST_AUTO_TEST_CASE(single_element_can_have_multiple_connections)
+{
+    // { 0 1 2 }
+    QuickUnion quick_union(3);
+
+    quick_union.connect(0, 1);
+    quick_union.connect(0, 2);
+
+    BOOST_REQUIRE_EQUAL(quick_union.is_connected(0, 1), true);
+    BOOST_REQUIRE_EQUAL(quick_union.is_connected(0, 2), true);
+    BOOST_REQUIRE_EQUAL(quick_union.is_connected(1, 2), true);
+}

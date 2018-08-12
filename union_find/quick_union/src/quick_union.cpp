@@ -13,29 +13,27 @@ QuickUnion::QuickUnion(size_t n_elements)
     disconnect_all();
 }
 
-bool QuickUnion::is_connected(size_t p, size_t q) const
+size_t QuickUnion::get_root(size_t p) const
 {
-    auto target = p;
-    auto child = q;
+    auto child = p;
     auto parent = ids.at(child);
-
-    if (child == target)
+    while (parent != child)
     {
-        // User asked if this element is connected to itself. It is.
-        return true;
+        child = parent;
+        parent = ids.at(child);
     }
-    if (parent == child)
-    {
-        // This child is connected only to itself.
-        return false;
-    }
-    else if (parent == target)
-    {
-        return true;
-    }
-    return is_connected(target, parent);
+    return parent;
 }
 
+// Elements are connected if they share the same root.
+bool QuickUnion::is_connected(size_t p, size_t q) const
+{
+    auto root_p = get_root(p);
+    auto root_q = get_root(q);
+    return root_p == root_q;
+}
+
+// We're storing items in a tree. Document this somehow.
 bool QuickUnion::connect(size_t p, size_t q)
 {
     auto parent = p;
