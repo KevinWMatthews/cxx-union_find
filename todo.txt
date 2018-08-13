@@ -18,9 +18,6 @@ Make tests a compile option.
 
 Extract size check during initialization.
 
-Connect low/high and high/low.
-Check connection for low/high and high/low.
-
 Do we need to test all connections in a component?
 
 Should the test suites differ?
