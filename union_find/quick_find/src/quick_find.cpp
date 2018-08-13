@@ -6,9 +6,7 @@ using namespace std;
 
 QuickFind::QuickFind(size_t n_elements)
 {
-    if (n_elements == 0)
-        throw domain_error("Union must have elements");
-
+    UnionFind::check_n_elements(n_elements);
     ids.resize(n_elements);
     disconnect_all();
 }

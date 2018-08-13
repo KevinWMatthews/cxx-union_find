@@ -16,8 +16,6 @@ Should be able to do this with a CTest command.
 
 Make tests a compile option.
 
-Extract size check during initialization.
-
 Do we need to test all connections in a component?
 
 Should the test suites differ?
