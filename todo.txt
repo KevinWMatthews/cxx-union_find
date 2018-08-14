@@ -1,5 +1,6 @@
-Do not allow connect() if out of range.
-Do not allow is_connected() if out of range.
+Test error message for out-of-range exceptions.
+    The underlying data structures throw for us so our tests can't actually tell if we're checking or not.
+    I do want a more clear message - catch it in my class rather than in an underlying data structure.
 
 Add documentation on components:
     { 0 } { 1 2 } { 3 4 5 }

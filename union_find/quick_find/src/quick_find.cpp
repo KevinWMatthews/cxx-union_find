@@ -6,18 +6,25 @@ using namespace std;
 
 QuickFind::QuickFind(size_t n_elements)
 {
-    UnionFind::check_n_elements(n_elements);
-    ids.resize(n_elements);
+    size = n_elements;
+    UnionFind::check_n_elements(size);
+    ids.resize(size);
     disconnect_all();
 }
 
 bool QuickFind::is_connected(size_t p, size_t q) const
 {
+    UnionFind::check_in_range(p);
+    UnionFind::check_in_range(q);
+
     return ids.at(p) == ids.at(q);
 }
 
 bool QuickFind::connect(size_t p, size_t q)
 {
+    UnionFind::check_in_range(p);
+    UnionFind::check_in_range(q);
+
     merge_components(ids.at(p), ids.at(q));
     return true;
 }
