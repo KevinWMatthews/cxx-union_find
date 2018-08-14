@@ -21,8 +21,10 @@ string exception_message(const char* function_name, const char* message)
 
 QuickUnion::QuickUnion(size_t n_elements)
 {
+    if (UnionFind::is_valid_size(n_elements) == false)
+        throw domain_error(exception_message(__func__));
+
     size = n_elements;
-    check_n_elements(size);
     ids.resize(size);
     disconnect_all();
 }

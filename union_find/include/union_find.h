@@ -12,11 +12,11 @@ class UnionFind
 protected:
     size_t size;
 
-    void check_n_elements(size_t n_elements) const
+    bool is_valid_size(size_t n_elements) const
     {
-        if (n_elements == 0)
-            throw std::domain_error("Union must have elements");
+        return n_elements > 0;
     }
+
     bool is_in_range(size_t p) const
     {
         return p < size;
