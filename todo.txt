@@ -1,5 +1,6 @@
 Test error message for out-of-range exceptions.
     Use a "contains" rather than an "equals" condition.
+    Refactor or remove exception message stuff. It's a bit of a mess.
 
 Find a better way to do string comparisons in tests
 (or use a different unit test library).
@@ -14,7 +15,7 @@ Make tests a compile option.
 
 Do we need to test all connections in a component?
 
-Should the test suites differ?
+Should the test suites differ? It'd be nice to merge them....
 
 Document quick_union to detail the tree structure that we're trying to use.
 
