@@ -10,10 +10,17 @@ class UnionFind
     virtual bool is_connected(size_t p, size_t q) const = 0;
     virtual bool connect(size_t p, size_t q) = 0;
 protected:
+    size_t size;
+
     void check_n_elements(size_t n_elements) const
     {
         if (n_elements == 0)
             throw std::domain_error("Union must have elements");
+    }
+    void check_in_range(size_t p) const
+    {
+        if (p >= size)
+            throw std::out_of_range("Element out of range");
     }
 };
 
