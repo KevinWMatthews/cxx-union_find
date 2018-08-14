@@ -1,6 +1,26 @@
 #include "quick_union.h"
 #define BOOST_TEST_MAIN
 #include <boost/test/unit_test.hpp>
+#include <boost/algorithm/string.hpp>
+
+namespace
+{
+
+// BOOST_<level>_EXCEPTION() accepts a predicate (function returning a boolean) as its third argument.
+// Use this to check if the exception throws the desired message.
+// Boost has full control over the argument to the predicate, so
+// generate a lambda and capture the expectation.
+auto require_exception_message(std::string expected)
+{
+    return [expected](const std::logic_error& except)
+    {
+        BOOST_REQUIRE(boost::algorithm::contains(except.what(), expected));
+        return true;
+    };
+}
+
+}
+
 
 BOOST_AUTO_TEST_CASE(can_be_created)
 {
@@ -27,7 +47,10 @@ BOOST_AUTO_TEST_CASE(points_are_not_connected_by_default)
 BOOST_AUTO_TEST_CASE(do_not_check_connection_if_point_is_out_of_range)
 {
     QuickUnion quick_union(2);
-    BOOST_REQUIRE_THROW(quick_union.is_connected(0, 2), std::out_of_range);
+    auto is_correct_message = require_exception_message("QuickUnion::is_connected");
+
+    BOOST_REQUIRE_EXCEPTION(quick_union.is_connected(0, 2), std::out_of_range, is_correct_message);
+    BOOST_REQUIRE_EXCEPTION(quick_union.is_connected(2, 0), std::out_of_range, is_correct_message);
 }
 
 BOOST_AUTO_TEST_CASE(can_connect_points)
@@ -48,8 +71,10 @@ BOOST_AUTO_TEST_CASE(two_points_can_be_connected_in_either_order)
 BOOST_AUTO_TEST_CASE(do_not_connect_points_out_of_range)
 {
     QuickUnion quick_union(1);
-    BOOST_REQUIRE_THROW(quick_union.connect(0, 1), std::out_of_range);
-    BOOST_REQUIRE_THROW(quick_union.connect(1, 0), std::out_of_range);
+    auto is_correct_message = require_exception_message("QuickUnion::connect");
+
+    BOOST_REQUIRE_EXCEPTION(quick_union.connect(0, 1), std::out_of_range, is_correct_message);
+    BOOST_REQUIRE_EXCEPTION(quick_union.connect(1, 0), std::out_of_range, is_correct_message);
 }
 
 BOOST_AUTO_TEST_CASE(several_points_are_disconnected_by_default)

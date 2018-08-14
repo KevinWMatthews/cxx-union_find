@@ -17,10 +17,9 @@ protected:
         if (n_elements == 0)
             throw std::domain_error("Union must have elements");
     }
-    void check_in_range(size_t p) const
+    bool is_in_range(size_t p) const
     {
-        if (p >= size)
-            throw std::out_of_range("Element out of range");
+        return p < size;
     }
 };
 

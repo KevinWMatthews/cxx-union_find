@@ -14,16 +14,20 @@ QuickFind::QuickFind(size_t n_elements)
 
 bool QuickFind::is_connected(size_t p, size_t q) const
 {
-    UnionFind::check_in_range(p);
-    UnionFind::check_in_range(q);
+    if (UnionFind::is_in_range(p) == false)
+        throw out_of_range("QuickFind::" + string(__FUNCTION__) + " argument p");
+    if (UnionFind::is_in_range(q) == false)
+        throw out_of_range("QuickFind::" + string(__FUNCTION__) + " argument q");
 
     return ids.at(p) == ids.at(q);
 }
 
 bool QuickFind::connect(size_t p, size_t q)
 {
-    UnionFind::check_in_range(p);
-    UnionFind::check_in_range(q);
+    if (UnionFind::is_in_range(p) == false)
+        throw out_of_range("QuickFind::" + string(__FUNCTION__) + " argument p");
+    if (UnionFind::is_in_range(q) == false)
+        throw out_of_range("QuickFind::" + string(__FUNCTION__) + " argument q");
 
     merge_components(ids.at(p), ids.at(q));
     return true;

@@ -27,8 +27,10 @@ size_t QuickUnion::get_root(size_t p) const
 // Elements are connected if they share the same root.
 bool QuickUnion::is_connected(size_t p, size_t q) const
 {
-    UnionFind::check_in_range(p);
-    UnionFind::check_in_range(q);
+    if (UnionFind::is_in_range(p) == false)
+        throw out_of_range("QuickUnion::" + string(__FUNCTION__) + " argument p");
+    if (UnionFind::is_in_range(q) == false)
+        throw out_of_range("QuickUnion::" + string(__FUNCTION__) + " argument q");
 
     auto root_p = get_root(p);
     auto root_q = get_root(q);
@@ -37,8 +39,10 @@ bool QuickUnion::is_connected(size_t p, size_t q) const
 
 bool QuickUnion::connect(size_t p, size_t q)
 {
-    UnionFind::check_in_range(p);
-    UnionFind::check_in_range(q);
+    if (UnionFind::is_in_range(p) == false)
+        throw out_of_range("QuickUnion::" + string(__FUNCTION__) + " argument p");
+    if (UnionFind::is_in_range(q) == false)
+        throw out_of_range("QuickUnion::" + string(__FUNCTION__) + " argument q");
 
     // To connect elements in a tree, connect their roos.
     // Elements can be their own root.
