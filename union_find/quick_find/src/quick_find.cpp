@@ -4,6 +4,21 @@
 
 using namespace std;
 
+namespace
+{
+
+string exception_message(const char* function_name)
+{
+    return string("QuickFind::" + string(function_name));
+}
+
+string exception_message(const char* function_name, const char* message)
+{
+    return string("QuickFind::" + string(function_name) + ": " + message);
+}
+
+}
+
 QuickFind::QuickFind(size_t n_elements)
 {
     size = n_elements;
@@ -15,9 +30,9 @@ QuickFind::QuickFind(size_t n_elements)
 bool QuickFind::is_connected(size_t p, size_t q) const
 {
     if (UnionFind::is_in_range(p) == false)
-        throw out_of_range("QuickFind::" + string(__func__) + " argument p");
+        throw out_of_range(exception_message(__func__, "argument p"));
     if (UnionFind::is_in_range(q) == false)
-        throw out_of_range("QuickFind::" + string(__func__) + " argument q");
+        throw out_of_range(exception_message(__func__, "argument q"));
 
     return ids.at(p) == ids.at(q);
 }
@@ -25,9 +40,9 @@ bool QuickFind::is_connected(size_t p, size_t q) const
 bool QuickFind::connect(size_t p, size_t q)
 {
     if (UnionFind::is_in_range(p) == false)
-        throw out_of_range("QuickFind::" + string(__func__) + " argument p");
+        throw out_of_range(exception_message(__func__, "argument p"));
     if (UnionFind::is_in_range(q) == false)
-        throw out_of_range("QuickFind::" + string(__func__) + " argument q");
+        throw out_of_range(exception_message(__func__, "argument q"));
 
     merge_components(ids.at(p), ids.at(q));
     return true;

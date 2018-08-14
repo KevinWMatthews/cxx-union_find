@@ -1,6 +1,7 @@
 Test error message for out-of-range exceptions.
     Use a "contains" rather than an "equals" condition.
     Refactor or remove exception message stuff. It's a bit of a mess.
+    Why are exceptions thrown from an "unknown location"? What if I unwrap the throw?
 
 Find a better way to do string comparisons in tests
 (or use a different unit test library).
