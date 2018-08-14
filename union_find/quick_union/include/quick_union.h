@@ -14,6 +14,8 @@ private:
     void disconnect_all();
     size_t get_root(size_t p) const;
     std::vector<size_t> ids;
+    void check_in_range(size_t p) const;
+    size_t size;
 };
 
 #endif

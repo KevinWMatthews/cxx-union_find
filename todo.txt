@@ -1,10 +1,3 @@
-Organize source/library code.
-Figure out which Boost variables to set, if any.
-
-Should an union of 0 throw an error?
-
-Rather than resize() and generate(), try reserve() and then insert().
-
 Do not allow connect() if out of range.
 Do not allow is_connected() if out of range.
 
@@ -21,3 +14,6 @@ Do we need to test all connections in a component?
 Should the test suites differ?
 
 Document quick_union to detail the tree structure that we're trying to use.
+
+Figure out which Boost variables to set, if any.
+Rather than resize() and generate(), try reserve() and then insert().
