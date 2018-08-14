@@ -31,7 +31,8 @@ BOOST_AUTO_TEST_CASE(can_be_created)
 
 BOOST_AUTO_TEST_CASE(can_not_be_empty)
 {
-    BOOST_REQUIRE_THROW(QuickFind(0), std::domain_error);
+    auto is_correct_message = require_exception_message("QuickFind::QuickFind");
+    BOOST_REQUIRE_EXCEPTION(QuickFind(0), std::domain_error, is_correct_message);
 }
 
 BOOST_AUTO_TEST_CASE(point_is_connected_to_itself)
