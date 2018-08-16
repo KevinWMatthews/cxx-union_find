@@ -1,4 +1,5 @@
 #include "weighted_quick_union.h"
+#include <stdexcept>
 
 using namespace std;
 

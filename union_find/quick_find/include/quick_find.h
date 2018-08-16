@@ -2,6 +2,7 @@
 #define QUICK_FIND_INCLUDED
 
 #include "union_find.h"
+#include <vector>
 
 class QuickFind : public UnionFind
 {

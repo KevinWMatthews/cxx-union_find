@@ -2,8 +2,6 @@
 #define UNION_FIND_INCLUDED
 
 #include <cstddef>
-#include <vector>
-#include <stdexcept>
 
 class UnionFind
 {
@@ -22,6 +20,5 @@ protected:
         return p < size;
     }
 };
-
 
 #endif
