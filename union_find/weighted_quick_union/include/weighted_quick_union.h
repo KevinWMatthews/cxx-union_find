@@ -7,7 +7,7 @@ class WeightedQuickUnion : public UnionFind
 {
 public:
     explicit WeightedQuickUnion(size_t n_elements);
-    bool is_connected(size_t p, size_t q) const { return false; }
+    bool is_connected(size_t p, size_t q) const;
     bool connect(size_t p, size_t q) { return false; }
 
 };
