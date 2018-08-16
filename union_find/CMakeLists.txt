@@ -7,3 +7,4 @@ enable_testing()
 
 add_subdirectory(quick_find)
 add_subdirectory(quick_union)
+add_subdirectory(weighted_quick_union)
