@@ -16,6 +16,7 @@ BOOST_AUTO_TEST_CASE(point_is_connected_to_itself)
 {
     WeightedQuickUnion weighted_quick_union(1);
     BOOST_REQUIRE_EQUAL(weighted_quick_union.is_connected(0, 0), true);
+    BOOST_REQUIRE_EQUAL(weighted_quick_union.max_depth(), 0);
 }
 
 BOOST_AUTO_TEST_CASE(points_are_not_connected_by_default)
@@ -38,4 +39,5 @@ BOOST_AUTO_TEST_CASE(can_connect_points)
     WeightedQuickUnion weighted_quick_union(2);
     BOOST_REQUIRE_EQUAL(weighted_quick_union.connect(0, 1), true);
     BOOST_REQUIRE_EQUAL(weighted_quick_union.is_connected(0, 1), true);
+    BOOST_REQUIRE_EQUAL(weighted_quick_union.max_depth(), 1);
 }

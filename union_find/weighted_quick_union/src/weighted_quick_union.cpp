@@ -11,6 +11,7 @@ WeightedQuickUnion::WeightedQuickUnion(size_t n_elements)
 
     size = n_elements;
     ids.resize(size);
+    depth.resize(size);
     disconnect_all();
 }
 
@@ -33,9 +34,15 @@ bool WeightedQuickUnion::connect(size_t p, size_t q)
     // Elements can be their own root.
     auto root_p = get_root(p);
     auto root_q = get_root(q);
-    ids[root_q] = root_p;
 
+    ids[root_q] = root_p;
+    depth[root_q] += 1;
     return true;
+}
+
+size_t WeightedQuickUnion::max_depth() const
+{
+    return *max_element(depth.begin(), depth.end());
 }
 
 size_t WeightedQuickUnion::get_root(size_t p) const
