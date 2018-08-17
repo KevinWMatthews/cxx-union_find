@@ -49,3 +49,11 @@ BOOST_AUTO_TEST_CASE(two_points_can_be_connected_in_either_order)
     BOOST_REQUIRE_EQUAL(weighted_quick_union.is_connected(0, 1), true);
     BOOST_REQUIRE_EQUAL(weighted_quick_union.is_connected(1, 0), true);
 }
+
+BOOST_AUTO_TEST_CASE(do_not_connect_points_out_of_range)
+{
+    WeightedQuickUnion weighted_quick_union(1);
+
+    BOOST_REQUIRE_THROW(weighted_quick_union.connect(0, 1), std::out_of_range);
+    BOOST_REQUIRE_THROW(weighted_quick_union.connect(1, 0), std::out_of_range);
+}

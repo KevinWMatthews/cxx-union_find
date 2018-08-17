@@ -30,6 +30,11 @@ bool WeightedQuickUnion::is_connected(size_t p, size_t q) const
 
 bool WeightedQuickUnion::connect(size_t p, size_t q)
 {
+    if (is_in_range(p) == false)
+        throw out_of_range("WeightedQuickUnion::is_connected");
+    if (is_in_range(q) == false)
+        throw out_of_range("WeightedQuickUnion::is_connected");
+
     // To connect elements in a tree, connect their roots.
     // Elements can be their own root.
     auto root_p = get_root(p);
