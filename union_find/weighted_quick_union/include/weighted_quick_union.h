@@ -13,6 +13,7 @@ public:
 private:
     std::vector<size_t> ids;
     void disconnect_all();
+    size_t get_root(size_t p) const;
 };
 
 #endif

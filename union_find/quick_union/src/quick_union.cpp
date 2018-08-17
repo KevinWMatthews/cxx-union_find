@@ -61,7 +61,7 @@ bool QuickUnion::connect(size_t p, size_t q)
     if (UnionFind::is_in_range(q) == false)
         throw out_of_range(exception_message(__func__, "argument q"));
 
-    // To connect elements in a tree, connect their roos.
+    // To connect elements in a tree, connect their roots.
     // Elements can be their own root.
     auto root_p = get_root(p);
     auto root_q = get_root(q);

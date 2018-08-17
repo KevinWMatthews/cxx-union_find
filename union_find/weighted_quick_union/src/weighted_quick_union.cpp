@@ -21,13 +21,26 @@ bool WeightedQuickUnion::is_connected(size_t p, size_t q) const
     if (is_in_range(q) == false)
         throw out_of_range("WeightedQuickUnion::is_connected");
 
-    return ids[p] == ids[q];
+    auto root_p = get_root(p);
+    auto root_q = get_root(q);
+
+    return ids[root_p] == ids[root_q];
 }
 
 bool WeightedQuickUnion::connect(size_t p, size_t q)
 {
-    ids[q] = p;
+    // To connect elements in a tree, connect their roots.
+    // Elements can be their own root.
+    auto root_p = get_root(p);
+    auto root_q = get_root(q);
+    ids[root_q] = root_p;
+
     return true;
+}
+
+size_t WeightedQuickUnion::get_root(size_t p) const
+{
+    return p;
 }
 
 void WeightedQuickUnion::disconnect_all()
