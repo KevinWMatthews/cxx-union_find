@@ -32,3 +32,10 @@ BOOST_AUTO_TEST_CASE(do_not_check_connection_if_point_is_out_of_range)
     BOOST_REQUIRE_THROW(weighted_quick_union.is_connected(0, 2), std::out_of_range);
     BOOST_REQUIRE_THROW(weighted_quick_union.is_connected(2, 0), std::out_of_range);
 }
+
+BOOST_AUTO_TEST_CASE(can_connect_points)
+{
+    WeightedQuickUnion weighted_quick_union(2);
+    BOOST_REQUIRE_EQUAL(weighted_quick_union.connect(0, 1), true);
+    BOOST_REQUIRE_EQUAL(weighted_quick_union.is_connected(0, 1), true);
+}

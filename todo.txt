@@ -23,3 +23,7 @@ Document quick_union to detail the tree structure that we're trying to use.
 
 Figure out which Boost variables to set, if any.
 Rather than resize() and generate(), try reserve() and then insert().
+
+Remove return code from connect().
+    We don't use it.
+    We use exceptions instead.
